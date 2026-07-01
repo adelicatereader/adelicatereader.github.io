@@ -1,16 +1,19 @@
 ---
-layout: home
+layout: single
 title: Home
 ---
 
-# Welcome!
+# Welcome
 
-Hi! I'm building my academic website.
+I am a researcher and writer working on literature, food studies, and decolonial frameworks.
 
-This website will soon feature my:
+## Current Work
+- Subaltern Gustatory Historiography (SGH)
+- Academic writing and fellowships
+- Language learning book projects
 
-- 📚 Research
-- 📝 Publications
-- 📖 Books
-- 🌏 Academic projects
-- 📬 Contact information
+## Explore
+- Research
+- Publications
+- Books
+- Contact
