@@ -56,14 +56,14 @@
   .hero{
     padding: 0; margin-bottom: 28px; border-radius: 6px; overflow: hidden;
   }
-  .hero-photo{
-    width: 100%;
-    aspect-ratio: 4 / 5;
-    max-height: 780px;
-    background: linear-gradient(160deg,#d8cfc0,#b9ada0);
-    display:flex; align-items:center; justify-content:center;
-    color: rgba(0,0,0,0.4); font-size: 1rem; text-align:center; padding: 24px;
-  }
+ .hero-photo{
+  width: 100%;
+  display: block;
+}
+.hero-photo img{
+  width: 100%;
+  display: block;
+}
   /* Replace .hero-photo background with your Canva image:
      background: url('photos/hero.jpg') center/cover no-repeat;
      ...and remove the placeholder text/div inside it. */
@@ -181,7 +181,7 @@
   <!-- HERO: replace .hero-photo background with your Canva image -->
   <section class="hero">
     <div class="hero-photo">
-      [ Drop your full Canva hero image here — swap this div's<br>background for: url('photos/hero.jpg') center/cover ]
+<img src="hero.jpg" alt="Adelicatereader">
     </div>
     <nav class="hero-nav">
       <a href="#about">about me</a>
