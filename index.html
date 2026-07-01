@@ -27,11 +27,11 @@
     color: var(--ink);
   }
 
-.page{
-  max-width: 100%;
-  margin: 40px 0;
-  padding: 0 40px;
-}
+  .page{
+    max-width: 100%;
+    margin: 40px 0;
+    padding: 0 40px;
+  }
 
   section.card{
     background: var(--cream-card);
@@ -54,13 +54,13 @@
 
   /* ---------- HERO (full photo, made in Canva) ---------- */
   .hero{
-    padding: 0; margin-bottom: 28px; border-radius: 0; overflow: hidden;
+    padding: 0; margin-bottom: 28px; border-radius: 6px; overflow: hidden;
   }
   .hero-photo{
     width: 100%;
     aspect-ratio: 4 / 5;
     max-height: 780px;
-    background: url('hero.jpg') center/cover no-repeat;
+    background: linear-gradient(160deg,#d8cfc0,#b9ada0);
     display:flex; align-items:center; justify-content:center;
     color: rgba(0,0,0,0.4); font-size: 1rem; text-align:center; padding: 24px;
   }
@@ -181,6 +181,7 @@
   <!-- HERO: replace .hero-photo background with your Canva image -->
   <section class="hero">
     <div class="hero-photo">
+      [ Drop your full Canva hero image here — swap this div's<br>background for: url('photos/hero.jpg') center/cover ]
     </div>
     <nav class="hero-nav">
       <a href="#about">about me</a>
