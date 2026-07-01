@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Name — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Caveat:wght@500;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream: #f2ece0;
+    --cream-card: #eee6d6;
+    --ink: #2b2622;
+    --pink: #ef9cc4;
+    --pink-deep: #e2589c;
+    --pink-pale: #f7d8e6;
+    --tape: rgba(230, 180, 200, 0.55);
+  }
+
+  * { box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background: #cdc4b3;
+    font-family: 'Work Sans', sans-serif;
+    color: var(--ink);
+  }
+
+  .page{
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 16px;
+  }
+
+  section.card{
+    background: var(--cream-card);
+    border-radius: 6px;
+    margin-bottom: 28px;
+    padding: 48px;
+    position: relative;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    overflow: hidden;
+    scroll-margin-top: 20px;
+  }
+
+  section.card::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image: radial-gradient(rgba(0,0,0,0.025) 1px, transparent 1px);
+    background-size: 3px 3px;
+    pointer-events:none;
+  }
+
+  /* ---------- HERO (full photo, made in Canva) ---------- */
+  .hero{
+    padding: 0; margin-bottom: 28px; border-radius: 6px; overflow: hidden;
+  }
+  .hero-photo{
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    max-height: 780px;
+    background: linear-gradient(160deg,#d8cfc0,#b9ada0);
+    display:flex; align-items:center; justify-content:center;
+    color: rgba(0,0,0,0.4); font-size: 1rem; text-align:center; padding: 24px;
+  }
+  /* Replace .hero-photo background with your Canva image:
+     background: url('photos/hero.jpg') center/cover no-repeat;
+     ...and remove the placeholder text/div inside it. */
+
+  .hero-nav{
+    display:flex; justify-content:center; gap: 4px; flex-wrap: wrap;
+    background: var(--cream-card);
+    padding: 18px 12px;
+  }
+  .hero-nav a{
+    font-family:'Caveat', cursive; font-weight:700; font-size: 1.25rem;
+    color: var(--pink-deep); text-decoration:none;
+    padding: 6px 18px; border-right: 1px solid rgba(0,0,0,0.15);
+  }
+  .hero-nav a:last-child{ border-right: none; }
+  .hero-nav a:hover{ color: var(--ink); }
+
+  /* ---------- SECTION HEADERS ---------- */
+  .section-title{
+    font-family:'Bagel Fat One', cursive; color: var(--pink);
+    font-size: clamp(2rem, 7vw, 2.8rem); margin: 0 0 28px;
+  }
+  .section-eyebrow{
+    font-family:'Caveat', cursive; font-size: 1.3rem; color: var(--pink-deep); margin: 0 0 2px;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{ display:grid; grid-template-columns: 220px 1fr; gap: 36px; align-items:start; }
+  .about-photo{
+    width: 100%; aspect-ratio: 4/5;
+    background: linear-gradient(160deg,#d8cfc0,#b9ada0);
+    border-radius: 4px; transform: rotate(-2deg);
+    display:flex; align-items:center; justify-content:center; color: rgba(0,0,0,0.35); font-size:.8rem; text-align:center; padding:10px;
+    box-shadow: 0 10px 22px rgba(0,0,0,0.15);
+  }
+  .about-text p{ font-size: .95rem; line-height: 1.65; }
+  .social-links{ display:flex; gap: 14px; flex-wrap: wrap; margin-top: 20px; }
+  .social-links a{
+    font-size: .85rem; text-decoration:none; color: var(--ink);
+    background: var(--pink-pale); padding: 8px 16px; border-radius: 999px;
+    border: 1px solid rgba(226,88,156,0.3);
+  }
+  .social-links a:hover{ background: var(--pink); color: #fff; }
+
+  /* ---------- ARTICLES ---------- */
+  .articles-list{ list-style:none; margin:0; padding:0; }
+  .articles-list li{
+    display:flex; justify-content:space-between; align-items:baseline; gap: 16px;
+    padding: 16px 0; border-bottom: 1px dashed rgba(0,0,0,0.2);
+    flex-wrap: wrap;
+  }
+  .articles-list li:first-child{ padding-top:0; }
+  .article-title{ font-weight:600; font-size: .98rem; }
+  .article-meta{ font-size: .78rem; color: rgba(0,0,0,0.55); white-space:nowrap; }
+  .articles-list a{ color: var(--pink-deep); text-decoration:none; font-size:.85rem; font-weight:600; }
+  .articles-list a:hover{ text-decoration:underline; }
+
+  /* ---------- BOOK CLUB ---------- */
+  .bookclub-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items:center; }
+  .book-cover{
+    width: 150px; aspect-ratio: 2/3;
+    background: linear-gradient(160deg,#d8cfc0,#b9ada0);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+    display:flex; align-items:center; justify-content:center; color: rgba(0,0,0,0.35); font-size:.75rem; text-align:center; padding:8px;
+  }
+  .book-covers{ display:flex; gap: 16px; justify-content:center; }
+  .bookclub-text p{ font-size:.95rem; line-height:1.6; }
+  .bookclub-tag{
+    display:inline-block; background: var(--pink); color:#fff; font-size:.75rem;
+    padding: 4px 12px; border-radius: 999px; margin-bottom: 12px;
+  }
+
+  /* ---------- DIGITAL PRODUCTS ---------- */
+  .products-grid{
+    display:grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  }
+  .product-col h3{
+    font-family:'Caveat', cursive; font-size: 1.5rem; color: var(--pink-deep);
+    margin: 0 0 14px; text-align:center;
+  }
+  .product-card{
+    background: #fbf8f0; border-radius: 4px; padding: 16px; margin-bottom: 14px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  .product-card .product-thumb{
+    width:100%; aspect-ratio: 4/3; background: linear-gradient(160deg,#e6dfd2,#cfc6b6);
+    border-radius: 3px; margin-bottom: 10px;
+    display:flex; align-items:center; justify-content:center; color: rgba(0,0,0,0.3); font-size:.65rem; text-align:center;
+  }
+  .product-card .product-name{ font-weight:600; font-size:.88rem; margin-bottom: 4px; }
+  .product-card .product-price{ font-size:.8rem; color: var(--pink-deep); font-weight:600; }
+  .product-card a.buy{
+    display:block; text-align:center; margin-top:10px; font-size:.78rem;
+    background: var(--pink-pale); padding: 7px; border-radius: 999px; text-decoration:none; color: var(--ink);
+  }
+  .product-card a.buy:hover{ background: var(--pink); color:#fff; }
+
+  footer{
+    text-align:center; font-size: .75rem; color: rgba(0,0,0,0.4); padding: 24px 0 40px;
+  }
+
+  @media (max-width: 680px){
+    section.card{ padding: 28px; }
+    .about-grid{ grid-template-columns: 1fr; }
+    .about-photo{ max-width: 200px; }
+    .bookclub-grid{ grid-template-columns: 1fr; }
+    .products-grid{ grid-template-columns: 1fr; }
+    .hero-nav a{ font-size: 1.05rem; padding: 6px 10px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO: replace .hero-photo background with your Canva image -->
+  <section class="hero">
+    <div class="hero-photo">
+      [ Drop your full Canva hero image here — swap this div's<br>background for: url('photos/hero.jpg') center/cover ]
+    </div>
+    <nav class="hero-nav">
+      <a href="#about">about me</a>
+      <a href="#articles">articles</a>
+      <a href="#bookclub">book club</a>
+      <a href="#shop">shop</a>
+    </nav>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="card" id="about">
+    <p class="section-eyebrow">get to know me</p>
+    <h2 class="section-title">about me</h2>
+    <div class="about-grid">
+      <div class="about-photo">[your photo]</div>
+      <div class="about-text">
+        <p>Write a few sentences here — who you are, what you write/read/create, and what people can expect from your page.</p>
+        <p>A second paragraph for more personality: your background, what got you into this, what you're working on now.</p>
+        <div class="social-links">
+          <a href="#">Instagram</a>
+          <a href="#">TikTok</a>
+          <a href="#">Goodreads</a>
+          <a href="#">Newsletter</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLES -->
+  <section class="card" id="articles">
+    <p class="section-eyebrow">as seen in</p>
+    <h2 class="section-title">published articles</h2>
+    <ul class="articles-list">
+      <li>
+        <div>
+          <div class="article-title">Article title goes here</div>
+          <div class="article-meta">Publication Name · Jan 2026</div>
+        </div>
+        <a href="#">Read →</a>
+      </li>
+      <li>
+        <div>
+          <div class="article-title">Another article title</div>
+          <div class="article-meta">Publication Name · Nov 2025</div>
+        </div>
+        <a href="#">Read →</a>
+      </li>
+      <li>
+        <div>
+          <div class="article-title">A third piece you wrote</div>
+          <div class="article-meta">Publication Name · Aug 2025</div>
+        </div>
+        <a href="#">Read →</a>
+      </li>
+    </ul>
+  </section>
+
+  <!-- BOOK CLUB -->
+  <section class="card" id="bookclub">
+    <p class="section-eyebrow">let's read together</p>
+    <h2 class="section-title">book club</h2>
+    <div class="bookclub-grid">
+      <div class="book-covers">
+        <div class="book-cover">[cover]</div>
+        <div class="book-cover">[cover]</div>
+      </div>
+      <div class="bookclub-text">
+        <span class="bookclub-tag">now reading</span>
+        <p>Short description of your book club — how often you meet, where (Discord, in-person, IG live), and how people can join.</p>
+        <p>Current pick: <strong>Book Title</strong> by Author Name.</p>
+        <div class="social-links">
+          <a href="#">Join the club</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIGITAL PRODUCTS -->
+  <section class="card" id="shop">
+    <p class="section-eyebrow">tools I've made</p>
+    <h2 class="section-title">digital products</h2>
+    <div class="products-grid">
+
+      <div class="product-col">
+        <h3>reading tools</h3>
+        <div class="product-card">
+          <div class="product-thumb">[product image]</div>
+          <div class="product-name">Product name</div>
+          <div class="product-price">$0.00</div>
+          <a class="buy" href="#">View product</a>
+        </div>
+        <div class="product-card">
+          <div class="product-thumb">[product image]</div>
+          <div class="product-name">Product name</div>
+          <div class="product-price">$0.00</div>
+          <a class="buy" href="#">View product</a>
+        </div>
+      </div>
+
+      <div class="product-col">
+        <h3>phd tools</h3>
+        <div class="product-card">
+          <div class="product-thumb">[product image]</div>
+          <div class="product-name">Product name</div>
+          <div class="product-price">$0.00</div>
+          <a class="buy" href="#">View product</a>
+        </div>
+        <div class="product-card">
+          <div class="product-thumb">[product image]</div>
+          <div class="product-name">Product name</div>
+          <div class="product-price">$0.00</div>
+          <a class="buy" href="#">View product</a>
+        </div>
+      </div>
+
+      <div class="product-col">
+        <h3>bookstagram content creation</h3>
+        <div class="product-card">
+          <div class="product-thumb">[product image]</div>
+          <div class="product-name">Product name</div>
+          <div class="product-price">$0.00</div>
+          <a class="buy" href="#">View product</a>
+        </div>
+        <div class="product-card">
+          <div class="product-thumb">[product image]</div>
+          <div class="product-name">Product name</div>
+          <div class="product-price">$0.00</div>
+          <a class="buy" href="#">View product</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>made with ✨ by you</footer>
+</div>
+</body>
+</html>
