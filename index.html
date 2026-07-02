@@ -187,12 +187,6 @@ section.card{
     /* Crop the hero image on mobile so the face stays visible
        instead of shrinking to fit a very wide banner shape.
        Adjust the height and object-position below to taste. */
-    .hero-photo img{
-      height: 55vh;
-      min-height: 320px;
-      object-fit: cover;
-      object-position: center 20%;
-    }
   }
 </style>
 </head>
@@ -201,9 +195,12 @@ section.card{
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-photo">
-<img src="hero.jpg" alt="A Delicate Reader">
-    </div>
+<div class="hero-photo">
+<picture>
+  <source media="(max-width: 680px)" srcset="hero-mobile.jpg">
+  <img src="hero.jpg" alt="A Delicate Reader">
+</picture>
+</div>
     <nav class="hero-nav">
       <a href="#about">about me</a>
       <a href="#articles">publications</a>
