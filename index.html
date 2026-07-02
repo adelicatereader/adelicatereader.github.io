@@ -126,6 +126,44 @@ section.card{
   .articles-list a{ color: var(--pink-deep); text-decoration:none; font-size:.85rem; font-weight:600; white-space:nowrap; }
   .articles-list a:hover{ text-decoration:underline; }
 
+  /* ---------- FAQ ---------- */
+  .faq-list{ margin-top: 8px; }
+  .faq-item{
+    border-bottom: 1px dashed rgba(0,0,0,0.2);
+    padding: 18px 0;
+  }
+  .faq-item summary{
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  .faq-item summary::-webkit-details-marker{ display:none; }
+  .faq-item summary::after{
+    content: "+";
+    font-size: 1.5rem;
+    color: var(--pink-deep);
+    flex-shrink: 0;
+    line-height: 1;
+  }
+  .faq-item[open] summary::after{ content: "–"; }
+  .faq-answer{
+    font-size: .9rem;
+    line-height: 1.65;
+    margin-top: 14px;
+    color: rgba(43,38,34,0.85);
+    max-width: 700px;
+  }
+  .faq-answer p{ margin: 0 0 10px; }
+  .faq-answer p:last-child{ margin-bottom: 0; }
+  .faq-answer ul{ margin: 0 0 10px; padding-left: 20px; }
+  .faq-answer a{ color: var(--pink-deep); font-weight: 600; text-decoration: none; }
+  .faq-answer a:hover{ text-decoration: underline; }
+
   /* ---------- BOOK CLUB ---------- */
 .bookclub-text p{
   font-size:.95rem;
@@ -141,10 +179,20 @@ section.card{
   }
 
   @media (max-width: 680px){
-    section.card{ padding: 48px; }
+    section.card{ padding: 48px 28px; }
     .about-grid{ grid-template-columns: 1fr; }
     .about-photo{ max-width: 200px; }
     .hero-nav a{ font-size: 1.05rem; padding: 6px 10px; }
+
+    /* Crop the hero image on mobile so the face stays visible
+       instead of shrinking to fit a very wide banner shape.
+       Adjust the height and object-position below to taste. */
+    .hero-photo img{
+      height: 55vh;
+      min-height: 320px;
+      object-fit: cover;
+      object-position: center 20%;
+    }
   }
 </style>
 </head>
@@ -159,6 +207,7 @@ section.card{
     <nav class="hero-nav">
       <a href="#about">about me</a>
       <a href="#articles">publications</a>
+      <a href="#faq">faq</a>
       <a href="#bookclub">book club</a>
     </nav>
   </section>
@@ -179,6 +228,7 @@ section.card{
         <a href="https://www.tiktok.com/@adelicatereader" target="_blank">Tiktok</a>
         <a href="https://societyofletters.substack.com" target="_blank">Substack</a>
         <a href="https://www.etsy.com/shop/DelicatePages" target="_blank">Etsy shop</a>
+        <a href="mailto:adelicatereader@gmail.com">Email</a>
       </div>
     </div>
   </section>
@@ -224,6 +274,68 @@ section.card{
         <a href="https://sare.um.edu.my/index.php/SARE/article/view/25287" target="_blank">Read →</a>
       </li>
     </ul>
+  </section>
+
+  <!-- FAQ -->
+  <section class="card" id="faq">
+    <p class="section-eyebrow">questions? I've got answers</p>
+    <h2 class="section-title">FAQ</h2>
+    <div class="faq-list">
+
+      <details class="faq-item">
+        <summary>Where can I read your PhD dissertation?</summary>
+        <div class="faq-answer">
+          <p>Thank you for your interest in my research! My dissertation is written in French but you're very welcome to read it.</p>
+          <p>You can access the full manuscript <a href="https://theses.hal.science/tel-04684220/file/These_GONZALES_GemaCharmaine_2024.pdf" target="_blank">here</a>.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Where else can I find your work?</summary>
+        <div class="faq-answer">
+          <p>I love sharing my research in ways that are accessible beyond academia.</p>
+          <ul>
+            <li>Instagram: I post reels and bite-sized content about my PhD, books, and food studies.</li>
+            <li>Substack: I'll be publishing essays, reading lists, and research reflections.</li>
+            <li>YouTube: I'm working on longer deep dives into literature, food studies, and my research.</li>
+          </ul>
+          <p>If you'd like to follow along, I'd love to have you there!</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Do you have a reading list for food studies?</summary>
+        <div class="faq-answer">
+          <p>Yes! Reading lists are one of my favorite things to curate. I'll be sharing recommendations on food studies, literary studies, postcolonial studies, feminist theory, Southeast Asian studies, and related topics on my Substack.</p>
+          <p>If that sounds like your kind of reading, I'd love for you to subscribe!</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Can you read or proofread my PhD proposal, research summary, or project?</summary>
+        <div class="faq-answer">
+          <p>Thank you so much for thinking of me and trusting me with your work. I receive quite a few requests for feedback and unfortunately I don't have the capacity to provide individual reviews of research proposals, theses, or application materials.</p>
+          <p>I wish you all the best with your research journey.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Do you accept collaboration requests or sponsored partnerships?</summary>
+        <div class="faq-answer">
+          <p>Absolutely! If you think we'd be a good fit, I'd love to hear from you.</p>
+          <p>Please send me an email (<a href="mailto:adelicatereader@gmail.com">adelicatereader@gmail.com</a>) and I'll get back to you as soon as I can.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Do you give talks, workshops, or guest lectures?</summary>
+        <div class="faq-answer">
+          <p>Yes! I'm available for invited talks, workshops, guest lectures, podcasts, and other speaking engagements related to my areas of expertise.</p>
+          <p>If you'd like to discuss an opportunity, please email me (<a href="mailto:adelicatereader@gmail.com">adelicatereader@gmail.com</a>). I'd be happy to chat!</p>
+        </div>
+      </details>
+
+    </div>
   </section>
 
   <!-- BOOK CLUB -->
