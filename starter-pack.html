@@ -15,22 +15,18 @@
     --pink-deep: #e2589c;
     --pink-pale: #f7d8e6;
   }
-
   * { box-sizing: border-box; }
-
   body{
     margin:0;
     background: var(--cream);
     font-family: 'Work Sans', sans-serif;
     color: var(--ink);
   }
-
   .page{
     max-width: 640px;
     margin: 0 auto;
     padding: 72px 24px 100px;
   }
-
   .back-link{
     display:block;
     font-family:'Caveat', cursive;
@@ -41,7 +37,6 @@
     margin-bottom: 40px;
   }
   .back-link:hover{ color: var(--ink); }
-
   .eyebrow{
     font-family:'Caveat', cursive;
     font-weight:700;
@@ -51,7 +46,6 @@
     margin: 0 0 6px;
     text-align: center;
   }
-
   h1{
     font-family:'Barlow', sans-serif;
     font-weight: 700;
@@ -63,14 +57,25 @@
     margin: 0 0 32px;
   }
   h1 .pink{ color: var(--pink-deep); }
-
   .intro{
     font-size: 1rem;
     line-height: 1.7;
     text-align: center;
     margin: 0 0 32px;
   }
-
+  .subscribe-wrap{
+    background: var(--cream-card);
+    border-radius: 6px;
+    padding: 28px;
+    margin: 0 0 36px;
+  }
+  iframe.substack-embed{
+    width: 100%;
+    height: 320px;
+    border: none;
+    background: transparent;
+    display: block;
+  }
   .includes{
     background: var(--cream-card);
     border-radius: 6px;
@@ -90,14 +95,12 @@
   }
   .includes li{ margin-bottom: 10px; }
   .includes li:last-child{ margin-bottom: 0; }
-
   .closing{
     font-size: .95rem;
     line-height: 1.7;
     text-align: center;
     margin: 0 0 12px;
   }
-
   .signoff{
     font-family:'Caveat', cursive;
     font-weight: 700;
@@ -106,25 +109,9 @@
     text-align: center;
     margin: 0 0 40px;
   }
-
-  .subscribe-wrap{
-    background: var(--cream-card);
-    border-radius: 6px;
-    padding: 28px;
-  }
-
-  iframe.substack-embed{
-    width: 100%;
-    height: 320px;
-    border: none;
-    background: transparent;
-    display: block;
-  }
-
   footer{
     text-align:center; font-size: .75rem; color: rgba(0,0,0,0.4); padding: 48px 0 0;
   }
-
   @media (max-width: 480px){
     .page{ padding: 48px 18px 80px; }
   }
@@ -132,12 +119,18 @@
 </head>
 <body>
 <div class="page">
-
-
   <p class="eyebrow">a little gift for you</p>
   <h1>Get the Free <span class="pink">World Reader</span> Starter Pack</h1>
-
   <p class="intro">Start your global reading journey with this free collection of resources designed for book lovers.</p>
+
+  <div class="subscribe-wrap">
+    <!-- Substack embeddable subscribe widget.
+         To hide the publication logo, go to your Substack dashboard:
+         Settings → Growth features → toggle "Show pub logo on embed" OFF.
+         Substack will generate a new src URL for you — paste it below,
+         replacing the current src. -->
+    <iframe class="substack-embed" src="https://adelicatereader.substack.com/embed?transparent=1" frameborder="0" scrolling="no"></iframe>
+  </div>
 
   <div class="includes">
     <p>Inside you'll get:</p>
@@ -148,16 +141,9 @@
     </ul>
   </div>
 
-  <p class="closing">Enter your email to subscribe. I'll send the Starter Pack straight to your inbox.</p>
+  <p class="closing">Become a more curious, global reader. Every week, discover books from around the world, literary ideas made accessible, and notes from Paris life. Written by a literature PhD. Subscribe to receive the World Reader Starter Pack.</p>
+  <p class="signoff">By Gema Ren Gonzales</p>
 
-
-  <div class="subscribe-wrap">
-    <!-- Substack embeddable subscribe widget.
-         Replace SUBDOMAIN below with your actual Substack subdomain
-         (e.g. if your Substack is at societyofletters.substack.com,
-         SUBDOMAIN is "societyofletters"). -->
-    <iframe src="https://adelicatereader.substack.com/embed?transparent=1" width="480" height="320" style="border: 0; background: transparent" frameborder="0" scrolling="no"></iframe>
-  </div>
   <footer>A Delicate Reader ©2026</footer>
 </div>
 </body>
